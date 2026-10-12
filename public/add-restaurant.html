@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Restaurant | Fork & Find</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Fork & Find</h1>
+        <p>Find your next favorite restaurant.</p>
+    </header>
+
+    <main>
+
+        <section class="form-heading">
+            <h2 id="formTitle">Add Restaurant</h2>
+            <p>Enter the restaurant details below.</p>
+        </section>
+
+        <form id="restaurantForm">
+
+            <div class="restaurant-form-layout">
+
+                <div class="form-fields">
+
+                    <div class="filter-group">
+                        <label for="restaurantName">
+                            Restaurant Name
+                        </label>
+                        <input
+                            type="text"
+                            id="restaurantName"
+                            placeholder="e.g. Cafe Laur"
+                            required
+                        >
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="restaurantCuisine">
+                            Cuisine
+                        </label>
+                        <select id="restaurantCuisine" required>
+                            <option value="">Select cuisine</option>
+                            <option value="American">American</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Mexican">Mexican</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="restaurantBorough">
+                            Borough
+                        </label>
+                        <select id="restaurantBorough" required>
+                            <option value="">Select borough</option>
+                            <option value="Bronx">Bronx</option>
+                            <option value="Brooklyn">Brooklyn</option>
+                            <option value="Manhattan">Manhattan</option>
+                            <option value="Queens">Queens</option>
+                            <option value="Staten Island">Staten Island</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="restaurantRating">
+                            Rating (0.0 - 5.0)
+                        </label>
+                        <input
+                            type="number"
+                            id="restaurantRating"
+                            min="0"
+                            max="5"
+                            step="0.1"
+                            placeholder="e.g. 4.5"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <div class="image-upload">
+
+                    <div class="image-placeholder">
+                        <span>Upload Image</span>
+                        <p>Choose a PNG or JPG photo</p>
+                    </div>
+
+                    <div id="currentImage"></div>
+
+                    <input
+                        type="file"
+                        id="restaurantImage"
+                        accept=".png,.jpg,.jpeg"
+                    >
+
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+
+                <button type="submit" id="saveButton">
+                    Save
+                </button>
+
+                <a href="index.html" class="cancel-button">
+                    Cancel
+                </a>
+
+            </div>
+
+        </form>
+
+    </main>
+
+    <script src="add-restaurant.js"></script>
+
+</body>
+</html>

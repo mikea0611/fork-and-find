@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fork & Find | Restaurant Directory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <a class="directory-home-link" href="index.html">← Home</a>
+        <h1>Fork & Find</h1>
+        <p>Find your next favorite restaurant.</p>
+    </header>
+
+    <main>
+
+        <section class="restaurant-heading">
+            <div>
+                <h2>Explore Restaurants</h2>
+                <p>Browse and manage our restaurant directory.</p>
+            </div>
+
+            <a href="boroughs.html" class="borough-link">Browse by Borough</a>
+            <a href="top-rated.html" class="borough-link">Top Rated</a>
+
+            <a href="add-restaurant.html" class="add-button">
+                + Add Restaurant
+            </a>
+        </section>
+
+        <section id="filters">
+
+            <h2>Search & Filter</h2>
+
+            <div class="main-filters">
+
+                <div class="filter-group">
+                    <label for="searchName">Restaurant Name</label>
+                    <input
+                        type="text"
+                        id="searchName"
+                        placeholder="Search restaurant..."
+                    >
+                </div>
+
+                <div class="filter-group">
+                    <label for="cuisine">Cuisine</label>
+                    <select id="cuisine">
+                        <option value="">All Cuisines</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Italian">Italian</option>
+                        <option value="American">American</option>
+                        <option value="Japanese">Japanese</option>
+                        <option value="Mexican">Mexican</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="borough">Borough</label>
+                    <select id="borough">
+                        <option value="">All Boroughs</option>
+                        <option value="Bronx">Bronx</option>
+                        <option value="Brooklyn">Brooklyn</option>
+                        <option value="Manhattan">Manhattan</option>
+                        <option value="Queens">Queens</option>
+                        <option value="Staten Island">Staten Island</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <details class="advanced-filters">
+
+                <summary>Advanced Filters</summary>
+
+                <div class="advanced-fields">
+
+                    <div class="filter-group">
+                        <label for="grade">Grade</label>
+                        <select id="grade">
+                            <option value="">All Grades</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="maxScore">Maximum Score</label>
+                        <input
+                            type="number"
+                            id="maxScore"
+                            placeholder="Example: 10"
+                        >
+                    </div>
+
+                </div>
+
+            </details>
+
+            <div class="filter-actions">
+                <button type="button" onclick="searchRestaurants()">
+                    Search
+                </button>
+            </div>
+
+        </section>
+
+    <div id="results"></div>
+
+    <!-- Restaurant pagination -->
+    <div id="pagination" class="pagination" hidden>
+
+        <button
+            type="button"
+            id="previousPage"
+            onclick="changePage(-1)">
+            <span class="pagination-arrow">&#10094;</span>
+            Previous
+        </button>
+
+        <span id="pageInfo">Page 1 of 1</span>
+
+        <button
+            type="button"
+            id="nextPage"
+            onclick="changePage(1)">
+            Next
+            <span class="pagination-arrow">&#10095;</span>
+        </button>
+
+    </div>
+
+    </main>
+
+    <!-- Delete Confirmation -->
+
+    <div id="deleteModal" class="modal">
+
+        <div class="modal-content">
+
+            <h2>Delete Restaurant</h2>
+
+            <p>
+                Are you sure you want to delete
+                "<strong id="deleteRestaurantName"></strong>"?
+            </p>
+
+            <p class="delete-warning">
+                This action cannot be undone.
+            </p>
+
+            <div class="modal-buttons">
+
+                <button type="button" onclick="cancelDelete()">
+                    Cancel
+                </button>
+
+                <button
+                    type="button"
+                    id="confirmDeleteButton"
+                    onclick="deleteRestaurant()">
+                    Delete Restaurant
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+   <script src="script.js"></script>
+
+</body>
+</html>

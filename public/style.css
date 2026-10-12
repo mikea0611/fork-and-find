@@ -1,0 +1,648 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #222;
+}
+
+/* Header */
+
+header {
+    background: #172033;
+    text-align: center;
+    color: white;
+    padding: 24px 40px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+header p {
+    margin: 6px 0 0;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+/* Main */
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+/* Restaurant heading */
+
+.restaurant-heading {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.restaurant-heading h2 {
+    margin: 0 0 8px;
+}
+
+.restaurant-heading p {
+    margin: 0;
+}
+
+.add-button {
+    display: inline-block;
+    background: #172033;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.add-button:hover {
+    background: #27344d;
+}
+
+/* Search and filters */
+
+#filters {
+    background: #e9edf2;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 28px;
+}
+
+#filters h2 {
+    margin: 0 0 18px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.main-filters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.filter-group label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.filter-group input,
+.filter-group select {
+    width: 100%;
+    height: 38px;
+    padding: 8px 10px;
+    border: 1px solid #cfd5dc;
+    border-radius: 4px;
+    background: white;
+    font-size: 14px;
+}
+
+/* Advanced filters */
+
+.advanced-filters {
+    margin-top: 18px;
+}
+
+.advanced-filters summary {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.advanced-fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Search button */
+
+.filter-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 18px;
+}
+
+.filter-actions button {
+    height: 38px;
+    padding: 0 25px;
+    border: none;
+    border-radius: 4px;
+    background: #172033;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.filter-actions button:hover {
+    background: #27344d;
+}
+
+/* Restaurant table */
+
+#results {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 30px;
+}
+
+#results table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 14px;
+}
+
+#results th,
+#results td {
+    padding: 14px;
+    border: 1px solid #e1e5ea;
+    text-align: left;
+}
+
+#results th {
+    background: #e9edf2;
+    font-weight: 600;
+}
+
+#results tr:hover {
+    background: #f8f9fb;
+}
+
+/* Add Restaurant page */
+
+.form-heading {
+    margin-bottom: 25px;
+}
+
+.form-heading h2 {
+    margin: 0 0 8px;
+}
+
+.form-heading p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+#restaurantForm {
+    background: white;
+    padding: 25px;
+    border: 1px solid #e1e5ea;
+    border-radius: 6px;
+}
+
+.restaurant-form-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.image-upload {
+    background: #e9edf2;
+    padding: 25px;
+    border-radius: 6px;
+    text-align: center;
+    align-self: start;
+}
+
+.image-placeholder {
+    padding: 30px 10px;
+}
+
+.image-placeholder span {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.image-placeholder p {
+    font-size: 13px;
+    color: #666;
+}
+
+.image-upload input {
+    max-width: 100%;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.form-actions button,
+.cancel-button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.form-actions button {
+    background: #172033;
+    color: white;
+    cursor: pointer;
+}
+
+.form-actions button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
+
+.cancel-button {
+    background: white;
+    color: #222;
+    border: 1px solid #aaa;
+}
+
+.cancel-button:hover {
+    background: #f5f7fa;
+}
+
+/* Smaller screens */
+
+@media (max-width: 800px) {
+
+    .main-filters {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .restaurant-form-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    header {
+        padding: 20px;
+    }
+
+    main {
+        width: 94%;
+    }
+
+    #filters {
+        padding: 15px;
+    }
+
+    .main-filters,
+    .advanced-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-actions button {
+        width: 100%;
+    }
+
+    #results table {
+        min-width: 600px;
+    }
+
+    .restaurant-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+     #restaurantForm {
+        padding: 15px;
+    }
+}
+
+    /* Delete Restaurant confirmation popup */
+
+    #deleteModal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    #deleteModal .modal-content {
+        background: white;
+        width: 90%;
+        max-width: 400px;
+        padding: 30px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    #deleteModal h2 {
+        margin: 0 0 15px;
+        font-size: 22px;
+    }
+
+    #deleteModal p {
+        margin: 10px 0;
+        font-size: 14px;
+    }
+
+    #deleteModal .delete-warning {
+        color: #777;
+    }
+
+    #deleteModal .modal-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 25px;
+    }
+
+    #deleteModal button {
+        padding: 10px 18px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    #confirmDeleteButton {
+        background: #172033;
+        color: white;
+        border-color: #172033;
+    }
+
+    /* Restaurant pagination */
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0 40px;
+    padding: 0 5px;
+}
+
+.pagination[hidden] {
+    display: none;
+}
+
+.pagination button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 9px 17px;
+    border: 1px solid #d5d9df;
+    border-radius: 30px;
+    background: white;
+    color: #555;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+    background: #e9edf2;
+    border-color: #aab3c1;
+}
+
+.pagination button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.pagination-arrow {
+    font-size: 12px;
+}
+
+#pageInfo {
+    color: #777;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Keep Edit and Delete neatly aligned */
+
+.restaurant-actions {
+    white-space: nowrap;
+}
+
+.restaurant-actions a,
+.restaurant-actions button {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 13px;
+}
+
+.restaurant-actions a {
+    color: #172033;
+    text-decoration: none;
+}
+
+.restaurant-actions a:hover {
+    text-decoration: underline;
+}
+
+.restaurant-actions button {
+    padding: 6px 10px;
+    border: 1px solid #d5d9df;
+    border-radius: 4px;
+    background: white;
+    color: #172033;
+    cursor: pointer;
+}
+
+.restaurant-actions button:hover {
+    background: #e9edf2;
+}
+
+@media (max-width: 550px) {
+    .pagination {
+        gap: 8px;
+    }
+
+    .pagination button {
+        padding: 8px 11px;
+        font-size: 12px;
+        gap: 5px;
+    }
+
+    #pageInfo {
+        font-size: 12px;
+    }
+}
+
+/* Step 14: Separate homepage (original restaurant styles retained above) */
+.directory-home-link {
+    position: absolute;
+    left: max(24px, calc((100% - 1100px) / 2));
+    top: 33px;
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 14px;
+}
+.directory-home-link:hover { text-decoration: underline; }
+.home-page { background: #f5f7fa; }
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 21px max(5%, calc((100% - 1100px) / 2));
+    text-align: left;
+}
+.home-brand {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.home-nav { display: flex; flex-wrap: wrap; gap: 26px; }
+.home-nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 14px;
+}
+.home-nav a:hover, .home-nav a[aria-current="page"] { color: #fff; }
+.home-main { max-width: 1100px; width: 90%; margin: 32px auto 55px; }
+.home-hero {
+    min-height: 410px;
+    border-radius: 9px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(90deg, rgba(18,27,43,.92) 0%, rgba(18,27,43,.76) 48%, rgba(18,27,43,.25) 100%), url("assets/home-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+.home-hero-content { max-width: 590px; padding: 54px 55px; }
+.home-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .18em; color: #d6e0ed; }
+.home-hero h1 { font-size: clamp(32px, 4.1vw, 49px); line-height: 1.14; letter-spacing: -.025em; margin: 17px 0; }
+.home-hero-content > p:not(.home-eyebrow) { font-size: 15px; line-height: 1.7; color: #e0e5ec; margin: 0 0 26px; }
+.home-primary-button {
+    display: inline-flex;
+    gap: 18px;
+    align-items: center;
+    background: #fff;
+    color: #172033;
+    text-decoration: none;
+    padding: 13px 19px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+}
+.home-primary-button:hover { background: #e9edf2; }
+.home-features { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; margin-top: 24px; }
+.home-feature {
+    min-height: 208px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #fff;
+    padding: 28px;
+    border: 1px solid #e1e5ea;
+    border-radius: 7px;
+    color: #172033;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(23,32,51,.035);
+}
+a.home-feature:hover { border-color: #b4bfce; transform: translateY(-2px); }
+.home-feature-icon { font-size: 33px; line-height: 1; font-weight: 400; }
+.home-feature h2 { font-size: 18px; margin: 18px 0 9px; }
+.home-feature p { font-size: 13px; color: #566173; line-height: 1.6; margin: 0 0 16px; }
+.home-feature-link { margin-top: auto; font-size: 12px; font-weight: 700; }
+.home-feature-upcoming { background: #f0f3f7; }
+.home-feature-upcoming .home-feature-link { color: #687485; }
+.home-footer { padding: 20px; color: #667085; font-size: 12px; text-align: center; }
+@media (max-width: 760px) {
+    .home-header { padding: 18px 5%; }
+    .home-nav { gap: 12px; }
+    .home-main { margin-top: 20px; }
+    .home-hero-content { padding: 38px 28px; }
+    .home-hero { min-height: 390px; }
+    .home-features { grid-template-columns: 1fr; }
+    .home-feature { min-height: 175px; }
+    .directory-home-link { position: static; display: block; margin-bottom: 8px; }
+}
+@media (max-width: 420px) {
+    .home-brand { font-size: 20px; }
+    .home-nav a { font-size: 12px; }
+    .home-nav { gap: 9px; }
+}
+
+
+/* Step 15: logo mark and borough grouping (existing Explorer styles unchanged) */
+.brand-mark { width: 37px; height: 37px; object-fit: cover; border-radius: 50%; background: #faf6ef; }
+.home-brand { display: inline-flex; align-items: center; gap: 10px; }
+.borough-link { display: inline-block; margin-left: auto; color: #172033; text-decoration: none; font-size: 14px; font-weight: 600; }
+.borough-link:hover { text-decoration: underline; }
+.restaurant-heading { flex-wrap: wrap; }
+.borough-page { background: #f8f7f3; }
+.borough-main { max-width: 1100px; width: 90%; margin: 45px auto 65px; }
+.borough-intro h1 { font-size: 30px; margin: 5px 0 8px; color: #30251e; }
+.borough-intro > p:last-child { color: #68645e; font-size: 14px; }
+.borough-eyebrow { font-size: 11px; font-weight: bold; letter-spacing: .18em; color: #9b704b; }
+.borough-tabs { display: flex; flex-wrap: wrap; gap: 7px; margin: 28px 0 22px; }
+.borough-tabs button { padding: 10px 17px; border: 1px solid #d7d0c5; background: white; color: #4b4037; border-radius: 4px; cursor: pointer; font-size: 13px; }
+.borough-tabs button:hover { background: #f2ece4; }
+.borough-tabs button.active { background: #4b3021; border-color: #4b3021; color: white; }
+.borough-status { color: #655e56; font-size: 14px; }
+.borough-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.borough-card { display: flex; flex-direction: column; padding: 21px; background: white; border: 1px solid #e5dfd5; border-radius: 7px; box-shadow: 0 3px 12px rgba(70,48,30,.04); min-width: 0; }
+.borough-card-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; border-bottom: 1px solid #eee8df; padding-bottom: 14px; }
+.borough-card-heading h2 { font-size: 17px; margin: 0; color: #33251c; }
+.borough-card-heading span { color: #777067; font-size: 11px; white-space: nowrap; }
+.borough-card ul { list-style: none; padding: 0; margin: 8px 0 16px; }
+.borough-card li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f1eee8; font-size: 13px; }
+.borough-card li span:first-child { overflow-wrap: anywhere; }
+.borough-rating { flex-shrink: 0; color: #65714c; font-weight: 700; }
+.borough-view-all { margin-top: auto; color: #815537; font-size: 12px; font-weight: 700; text-decoration: none; }
+.borough-view-all:hover { text-decoration: underline; }
+.borough-footnote { margin-top: 17px; color: #777067; font-size: 12px; }
+@media (max-width: 850px) { .borough-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 580px) { .borough-grid { grid-template-columns: 1fr; } .borough-main { width: 94%; margin-top: 30px; } .borough-intro h1 { font-size: 25px; } .borough-tabs button { padding: 9px 12px; } }
+
+/* Step 16: Top-Rated Restaurants (wireframe table) */
+.top-rated-page { background: #f8f7f3; }
+.top-rated-main { width: 90%; max-width: 1100px; margin: 45px auto 65px; }
+.top-rated-main h1 { margin: 6px 0 8px; font-size: 30px; color: #30251e; }
+.top-rated-description { margin: 0 0 25px; font-size: 14px; color: #68645e; }
+#topRatedStatus { font-size: 13px; color: #655e56; }
+.top-rated-table-wrap { width: 100%; overflow-x: auto; }
+.top-rated-table-wrap table { width: 100%; border-collapse: collapse; background: #fff; font-size: 14px; }
+.top-rated-table-wrap th, .top-rated-table-wrap td { padding: 14px; border: 1px solid #e5dfd5; text-align: left; }
+.top-rated-table-wrap th { background: #eeeae4; color: #382c22; }
+.top-rated-table-wrap tbody tr:hover { background: #faf6f0; }
+.top-rated-note { margin-top: 16px; font-size: 12px; color: #777067; }
+@media (max-width: 580px) {
+    .top-rated-main { width: 94%; margin-top: 30px; }
+    .top-rated-main h1 { font-size: 25px; }
+    .top-rated-table-wrap table { min-width: 610px; }
+}

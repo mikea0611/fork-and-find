@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurants by Borough | Fork &amp; Find</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="borough-page">
+    <header class="home-header">
+        <a class="home-brand" href="index.html"><img class="brand-mark" src="assets/fork-find-mark.png" alt="" />Fork &amp; Find</a>
+        <nav class="home-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="restaurants.html">Restaurants</a>
+            <a href="boroughs.html" aria-current="page">Boroughs</a>
+            <a href="top-rated.html">Top Rated</a>
+            <a href="add-restaurant.html">Manage</a>
+        </nav>
+    </header>
+    <main class="borough-main">
+        <div class="borough-intro">
+            <p class="borough-eyebrow">EXPLORE BY LOCATION</p>
+            <h1>Restaurants by Borough</h1>
+            <p>Explore restaurants grouped across New York City's five boroughs.</p>
+        </div>
+        <div class="borough-tabs" role="group" aria-label="Choose a borough">
+            <button type="button" class="active" data-borough="All" aria-pressed="true">All</button>
+            <button type="button" data-borough="Manhattan" aria-pressed="false">Manhattan</button>
+            <button type="button" data-borough="Brooklyn" aria-pressed="false">Brooklyn</button>
+            <button type="button" data-borough="Queens" aria-pressed="false">Queens</button>
+            <button type="button" data-borough="Bronx" aria-pressed="false">Bronx</button>
+            <button type="button" data-borough="Staten Island" aria-pressed="false">Staten Island</button>
+        </div>
+        <p id="boroughStatus" class="borough-status" role="status">Loading boroughs...</p>
+        <div id="boroughGroups" class="borough-grid"></div>
+        <p class="borough-footnote">Showing up to five restaurants per borough. Use “View all” to see the full filtered list.</p>
+    </main>
+    <script src="boroughs.js"></script>
+</body>
+</html>

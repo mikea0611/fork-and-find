@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Restaurants by Inspection Score | Fork &amp; Find</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="top-rated-page">
+    <header class="home-header">
+        <a class="home-brand" href="index.html"><img class="brand-mark" src="assets/fork-find-mark.png" alt="">Fork &amp; Find</a>
+        <nav class="home-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="restaurants.html">Restaurants</a>
+            <a href="boroughs.html">Boroughs</a>
+            <a href="top-rated.html" aria-current="page">Top Rated</a>
+            <a href="add-restaurant.html">Manage</a>
+        </nav>
+    </header>
+    <main class="top-rated-main">
+        <p class="borough-eyebrow">INSPECTION RANKINGS</p>
+        <h1>Top Restaurants by Inspection Score</h1>
+        <p class="top-rated-description">Explore restaurants ranked by their average recorded inspection score. Lower scores indicate better inspection results.</p>
+        <p id="topRatedStatus" role="status">Loading top-rated restaurants...</p>
+        <div id="topRatedResults" class="top-rated-table-wrap"></div>
+        <p class="top-rated-note">Showing up to 20 restaurants with recorded inspection scores. These are health inspection results, not customer star ratings. Restaurants without inspection scores are excluded.</p>
+    </main>
+    <script src="top-rated.js"></script>
+</body>
+</html>
