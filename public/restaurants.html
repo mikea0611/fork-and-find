@@ -176,6 +176,19 @@
     </div>
 
    <script src="script.js"></script>
+   <script>
+       // The homepage's Start Searching link opens this page at #filters.
+       // Focus the name field only for that link, without changing any filters.
+       if (window.location.hash === "#filters") {
+           window.addEventListener("load", function () {
+               const searchField = document.getElementById("searchName");
+               if (searchField) {
+                   document.getElementById("filters").scrollIntoView({ block: "start" });
+                   searchField.focus({ preventScroll: true });
+               }
+           });
+       }
+   </script>
 
 </body>
 </html>
