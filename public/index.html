@@ -7,35 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="home-page">
-    <header class="home-header">
-        <a class="home-brand" href="index.html"><img class="brand-mark" src="assets/fork-find-mark.png" alt="" />Fork &amp; Find</a>
-        <nav class="home-nav" aria-label="Main navigation">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-brand" href="index.html" aria-label="Fork &amp; Find — Home" title="Fork &amp; Find — Home"><span class="brand-icon"><svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v7a3 3 0 0 0 6 0V3M7 3v18M18 3c-3 2-4 5-4 9h4v9M18 3v9"/></svg></span><span class="brand-name">Fork &amp; Find</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
             <a href="index.html" aria-current="page">Home</a>
             <a href="restaurants.html">Restaurants</a>
-            <a href="boroughs.html">Boroughs</a>
+            <a href="search.html">Search &amp; Filter</a>
             <a href="top-rated.html">Top Rated</a>
             <a href="add-restaurant.html">Manage</a>
         </nav>
+      </div>
     </header>
+
+    
 
     <main class="home-main">
         <section class="home-hero" aria-labelledby="hero-title">
             <div class="home-hero-content">
-                <p class="home-eyebrow">YOUR CITY, YOUR NEXT FAVORITE</p>
-                <h1 id="hero-title">Discover great<br>restaurants in your city.</h1>
-                <p>Browse our restaurant database, search by name or cuisine, and explore restaurants across the boroughs.</p>
-                <a class="home-primary-button" href="restaurants.html">Browse Restaurants <span aria-hidden="true">→</span></a>
+                <p class="home-eyebrow">WELCOME TO FORK &amp; FIND</p>
+                <h1 id="hero-title">Discover your next favorite restaurant.</h1>
+                <p>Explore restaurants, discover new cuisines, and find the perfect place for your next meal.</p>
             </div>
         </section>
 
         <section class="home-features" aria-label="Explore Fork and Find">
             <a class="home-feature" href="restaurants.html">
                 <span class="home-feature-icon" aria-hidden="true">▤</span>
-                <h2>Restaurant Database</h2>
-                <p>View and explore restaurants saved in our database.</p>
+                <h2>Restaurant Directory</h2>
+                <p>Browse all available restaurants.</p>
                 <span class="home-feature-link">View restaurants →</span>
             </a>
-            <a class="home-feature" href="restaurants.html#filters">
+        <a class="home-feature" href="search.html"></a>
+        
                 <span class="home-feature-icon" aria-hidden="true">⌕</span>
                 <h2>Search &amp; Filter</h2>
                 <p>Find restaurants by name, cuisine, or borough.</p>
@@ -44,9 +48,18 @@
             <a class="home-feature" href="top-rated.html">
                 <span class="home-feature-icon" aria-hidden="true">☆</span>
                 <h2>Top Rated</h2>
-                <p>Explore the highest-rated restaurants in our directory.</p>
-                <span class="home-feature-link">View top rated →</span>
+                <p>See restaurants with average recorded inspection scores above 90.</p>
+                <span class="home-feature-link">View best quality →</span>
             </a>
+        </section>
+
+        <section class="about-section" id="about" aria-labelledby="about-heading">
+            <div class="about-label">ABOUT OUR WEBSITE</div>
+            <div class="about-content">
+                <h2 id="about-heading">A simpler way to explore restaurants.</h2>
+                <p>Fork &amp; Find is a restaurant directory designed to make browsing and comparing restaurants easier. Search by restaurant name or cuisine, explore restaurants by borough, and review inspection-score summaries using MongoDB aggregation.</p>
+                <p>Our goal is to organize restaurant information in one accessible place so visitors can discover dining options with less effort.</p>
+            </div>
         </section>
     </main>
     <footer class="home-footer">Fork &amp; Find · Restaurant Directory</footer>

@@ -45,7 +45,7 @@ function renderBoroughs() {
 
         const link = document.createElement("a");
         link.className = "borough-view-all";
-        link.href = "restaurants.html?borough=" + encodeURIComponent(group.borough);
+        link.href = "search.html?borough=" + encodeURIComponent(group.borough);
         link.textContent = "View all in " + group.borough + " →";
         card.appendChild(link);
         container.appendChild(card);

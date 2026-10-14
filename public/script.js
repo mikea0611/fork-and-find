@@ -7,11 +7,11 @@ async function loadRestaurants() {
     const params = new URLSearchParams();
 
     const filters = {
-        name: document.getElementById("searchName").value.trim(),
-        cuisine: document.getElementById("cuisine").value,
-        borough: document.getElementById("borough").value,
-        grade: document.getElementById("grade").value,
-        maxScore: document.getElementById("maxScore").value
+        name: document.getElementById("searchName")?.value.trim() || "",
+        cuisine: document.getElementById("cuisine")?.value || "",
+        borough: document.getElementById("borough")?.value || "",
+        grade: document.getElementById("grade")?.value || "",
+        maxScore: document.getElementById("maxScore")?.value || ""
     };
 
     for (const key in filters) {
@@ -134,7 +134,9 @@ async function loadRestaurants() {
     }
 }
 
+let hasSearched = false;
 function searchRestaurants() {
+    hasSearched = true;
     currentPage = 1;
     loadRestaurants();
 }
@@ -198,5 +200,11 @@ if (selectedFromLink) {
     }
 }
 
-// Load restaurants when the page opens
-loadRestaurants();
+// Browsing lists records immediately; searching waits for a submitted query.
+if (window.location.pathname.endsWith('/search.html')) {
+    document.getElementById('results').textContent = 'Enter a restaurant name or choose filters, then select Search.';
+    document.getElementById('pagination').hidden = true;
+    if (selectedFromLink) searchRestaurants();
+} else {
+    loadRestaurants();
+}

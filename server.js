@@ -8,7 +8,8 @@ const fs = require("fs");
 const app = express();
 const PORT = 3000;
 
-const client = new MongoClient("mongodb://localhost:27017");
+// Set MONGODB_URI to your MongoDB Atlas connection string when ready.
+const client = new MongoClient(process.env.MONGODB_URI || "mongodb://localhost:27017");
 
 let db;
 
@@ -327,8 +328,8 @@ app.get("/api/restaurants/grouped-by-borough", async (req, res) => {
     }
 });
 
-// Step 16: Rank restaurants by their recorded inspection scores.
-// Lower inspection scores mean better inspection results (not customer ratings).
+// Best inspection performance: lower violation-based inspection scores are better.
+// Group numeric inspection records by restaurant and sort by average ascending.
 app.get("/api/restaurants/top-rated", async (req, res) => {
     try {
         const restaurants = await db.collection("restaurants").aggregate([
@@ -342,21 +343,49 @@ app.get("/api/restaurants/top-rated", async (req, res) => {
                 averageScore: { $avg: "$grades.score" },
                 inspectionCount: { $sum: 1 }
             } },
-            { $sort: { averageScore: 1, name: 1, _id: 1 } },
+            { $sort: { averageScore: 1, inspectionCount: -1, name: 1 } },
             { $limit: 20 },
             { $project: {
-                name: 1,
-                cuisine: 1,
-                borough: 1,
+                name: 1, cuisine: 1, borough: 1,
                 averageScore: { $round: ["$averageScore", 1] },
                 inspectionCount: 1
             } }
         ]).toArray();
-
         res.json(restaurants);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Unable to load inspection rankings" });
+    }
+});
+
+// Explicit final-project demonstration: aggregated inspection averages strictly > 90.
+// This is a numeric aggregation exercise, NOT a list of best-quality restaurants.
+app.get("/api/restaurants/scores-over-90", async (req, res) => {
+    try {
+        const restaurants = await db.collection("restaurants").aggregate([
+            { $unwind: "$grades" },
+            { $match: { "grades.score": { $type: "number" } } },
+            { $group: {
+                _id: "$_id",
+                name: { $first: "$name" },
+                cuisine: { $first: "$cuisine" },
+                borough: { $first: "$borough" },
+                averageScore: { $avg: "$grades.score" },
+                inspectionCount: { $sum: 1 }
+            } },
+            { $match: { averageScore: { $gt: 90 } } },
+            { $sort: { averageScore: -1, name: 1 } },
+            { $limit: 20 },
+            { $project: {
+                name: 1, cuisine: 1, borough: 1,
+                averageScore: { $round: ["$averageScore", 1] },
+                inspectionCount: 1
+            } }
+        ]).toArray();
+        res.json(restaurants);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Unable to load scores-over-90 aggregation" });
     }
 });
 

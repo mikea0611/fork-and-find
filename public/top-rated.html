@@ -3,27 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Restaurants by Inspection Score | Fork &amp; Find</title>
+    <title>Best Inspection Results | Fork &amp; Find</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="top-rated-page">
-    <header class="home-header">
-        <a class="home-brand" href="index.html"><img class="brand-mark" src="assets/fork-find-mark.png" alt="">Fork &amp; Find</a>
-        <nav class="home-nav" aria-label="Main navigation">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-brand" href="index.html" aria-label="Fork &amp; Find — Home" title="Fork &amp; Find — Home"><span class="brand-icon"><svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v7a3 3 0 0 0 6 0V3M7 3v18M18 3c-3 2-4 5-4 9h4v9M18 3v9"/></svg></span><span class="brand-name">Fork &amp; Find</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="restaurants.html">Restaurants</a>
-            <a href="boroughs.html">Boroughs</a>
+            <a href="search.html">Search &amp; Filter</a>
             <a href="top-rated.html" aria-current="page">Top Rated</a>
             <a href="add-restaurant.html">Manage</a>
         </nav>
+      </div>
     </header>
+
+
     <main class="top-rated-main">
-        <p class="borough-eyebrow">INSPECTION RANKINGS</p>
-        <h1>Top Restaurants by Inspection Score</h1>
-        <p class="top-rated-description">Explore restaurants ranked by their average recorded inspection score. Lower scores indicate better inspection results.</p>
-        <p id="topRatedStatus" role="status">Loading top-rated restaurants...</p>
+        <p class="borough-eyebrow">MONGODB AGGREGATION</p>
+        <h1>Restaurant Inspection Rankings</h1>
+        <p class="top-rated-description">Compare restaurants by their average recorded inspection scores. Lower scores generally indicate fewer violation points.</p>
+        <h2 id="qualityHeading">Best Inspection Results</h2>
+        <p id="qualityExplanation" class="top-rated-description">Results are ranked from lowest to highest average inspection score. The inspection count shows how many numeric inspection records were included for each restaurant.</p>
+        <p id="topRatedStatus" role="status">Loading inspection results...</p>
         <div id="topRatedResults" class="top-rated-table-wrap"></div>
-        <p class="top-rated-note">Showing up to 20 restaurants with recorded inspection scores. These are health inspection results, not customer star ratings. Restaurants without inspection scores are excluded.</p>
+        <p class="top-rated-note" id="qualityNote">Inspection scores come from the grades.score field. The separate user-entered 0–5 rating is not used in these rankings.</p>
     </main>
     <script src="top-rated.js"></script>
 </body>
