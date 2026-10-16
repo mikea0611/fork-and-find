@@ -1,9 +1,11 @@
 {
   "name": "restaurant-explorer",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Fork & Find restaurant directory",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
+    "dev": "node --env-file=.env server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,6 +13,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@vercel/blob": "^2.8.2",
     "express": "^5.2.1",
     "mongodb": "^7.5.0",
     "multer": "^2.4.0"
